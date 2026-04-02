@@ -58,36 +58,97 @@
         <section id="home" class="hero" data-section="hero">
             <div class="hero-container">
                 <div class="hero-content">
-                    <p class="eyebrow">Kriittinen infrastruktuuri</p>
+                    <p class="eyebrow animate-fade-up">Kriittinen infrastruktuuri</p>
                     <h1 class="hero-title">
-                        <span class="hero-title-line">Datacenter-ratkaisut</span>
-                        <span class="hero-title-line">ja kuituverkot</span>
-                        <span class="hero-title-line hero-title-subline">– Luotettava toteutus alusta loppuun.</span>
+                        <span class="hero-title-line animate-slide-up" data-delay="200">Datacenter-ratkaisut</span>
+                        <span class="hero-title-line animate-slide-up" data-delay="400">ja kuituverkot</span>
+                        <span class="hero-title-line hero-title-subline animate-slide-up" data-delay="600">– Luotettava toteutus alusta loppuun.</span>
                     </h1>
-                    <p class="hero-subtitle">Suunnittelusta asennukseen ja ylläpitoon. <strong>Tekninen osaaminen</strong> ja <strong>dokumentoitu laatu</strong> jokaisessa projektissa.</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Kysy tarjous</a>
-                        <a href="#services" class="btn btn-secondary">Tutustu palveluihin</a>
+                    <p class="hero-subtitle animate-fade-up" data-delay="800">Suunnittelusta asennukseen ja ylläpitoon. <strong>Tekninen osaaminen</strong> ja <strong>dokumentoitu laatu</strong> jokaisessa projektissa.</p>
+                    <div class="hero-buttons animate-fade-up" data-delay="1000">
+                        <a href="#contact" class="btn btn-primary hover-lift">
+                            <span class="btn-text">Kysy tarjous</span>
+                            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#services" class="btn btn-secondary hover-lift">
+                            <span class="btn-text">Tutustu palveluihin</span>
+                        </a>
                     </div>
-                    <ul class="hero-metrics">
+                    <ul class="hero-metrics animate-stats" data-delay="1200">
                         <li>
-                            <span class="metric-value">24/7</span>
+                            <span class="metric-value counter" data-target="24">0</span><span class="metric-suffix">/7</span>
                             <span class="metric-label">kriittinen tuki</span>
                         </li>
                         <li>
-                            <span class="metric-value">99.9%</span>
+                            <span class="metric-value counter" data-target="99.9" data-decimal="true">0</span><span class="metric-suffix">%</span>
                             <span class="metric-label">käytettävyys</span>
                         </li>
                         <li>
-                            <span class="metric-value">Suomi</span>
+                            <span class="metric-value typing-text" data-text="Suomi">S</span>
                             <span class="metric-label">osaaminen ja tuki</span>
                         </li>
                     </ul>
                 </div>
                 <div class="hero-visual" aria-hidden="true">
+                    <div id="particles-js" class="particles-container"></div>
                     <div class="hero-background">
-                        <img src="assets/datacenter-hero.jpg" alt="" class="hero-image" loading="eager">
+                        <div class="datacenter-animation">
+                            <svg viewBox="0 0 400 300" class="datacenter-svg">
+                                <defs>
+                                    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                                    </linearGradient>
+                                    <filter id="glowEffect">
+                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                        <feMerge> 
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/> 
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+                                
+                                <!-- Server Rack -->
+                                <rect x="150" y="50" width="100" height="200" rx="8" fill="url(#serverGrad)" filter="url(#glowEffect)" class="server-rack float-vertical" />
+                                
+                                <!-- Server Bars -->
+                                <rect x="160" y="70" width="80" height="6" rx="2" fill="white" opacity="0.8" class="server-bar animate-pulse" style="animation-delay: 0s" />
+                                <rect x="160" y="90" width="80" height="6" rx="2" fill="white" opacity="0.6" class="server-bar animate-pulse" style="animation-delay: 0.3s" />
+                                <rect x="160" y="110" width="80" height="6" rx="2" fill="white" opacity="0.8" class="server-bar animate-pulse" style="animation-delay: 0.6s" />
+                                <rect x="160" y="130" width="80" height="6" rx="2" fill="white" opacity="0.6" class="server-bar animate-pulse" style="animation-delay: 0.9s" />
+                                <rect x="160" y="150" width="80" height="6" rx="2" fill="white" opacity="0.8" class="server-bar animate-pulse" style="animation-delay: 1.2s" />
+                                <rect x="160" y="170" width="80" height="6" rx="2" fill="white" opacity="0.6" class="server-bar animate-pulse" style="animation-delay: 1.5s" />
+                                <rect x="160" y="190" width="80" height="6" rx="2" fill="white" opacity="0.8" class="server-bar animate-pulse" style="animation-delay: 1.8s" />
+                                <rect x="160" y="210" width="80" height="6" rx="2" fill="white" opacity="0.6" class="server-bar animate-pulse" style="animation-delay: 2.1s" />
+                                <rect x="160" y="230" width="80" height="6" rx="2" fill="white" opacity="0.8" class="server-bar animate-pulse" style="animation-delay: 2.4s" />
+                                
+                                <!-- Status Lights -->
+                                <circle cx="225" cy="73" r="2.5" fill="#10b981" class="status-light blink-green" />
+                                <circle cx="225" cy="93" r="2.5" fill="#10b981" class="status-light blink-green" style="animation-delay: 0.5s" />
+                                <circle cx="225" cy="113" r="2.5" fill="#10b981" class="status-light blink-green" style="animation-delay: 1s" />
+                                <circle cx="225" cy="133" r="2.5" fill="#f59e0b" class="status-light blink-amber" style="animation-delay: 1.5s" />
+                                <circle cx="225" cy="153" r="2.5" fill="#10b981" class="status-light blink-green" style="animation-delay: 2s" />
+                                
+                                <!-- Fiber Optic Cables -->
+                                <path d="M50 150 Q 100 120, 150 140" stroke="#3b82f6" stroke-width="3" fill="none" class="fiber-cable animate-draw" style="animation-delay: 2.5s" />
+                                <path d="M250 100 Q 300 80, 350 110" stroke="#3b82f6" stroke-width="3" fill="none" class="fiber-cable animate-draw" style="animation-delay: 3s" />
+                                <path d="M250 180 Q 300 200, 350 170" stroke="#3b82f6" stroke-width="3" fill="none" class="fiber-cable animate-draw" style="animation-delay: 3.5s" />
+                                
+                                <!-- Data Flow Dots -->
+                                <circle cx="0" cy="140" r="3" fill="#60a5fa" class="data-dot" style="animation: dataFlow 4s linear infinite" />
+                                <circle cx="0" cy="110" r="3" fill="#34d399" class="data-dot" style="animation: dataFlow 4s linear infinite; animation-delay: 1s" />
+                                <circle cx="0" cy="170" r="3" fill="#fbbf24" class="data-dot" style="animation: dataFlow 4s linear infinite; animation-delay: 2s" />
+                            </svg>
+                        </div>
                         <div class="hero-overlay"></div>
+                    </div>
+                    <div class="floating-elements">
+                        <div class="floating-icon icon-1" data-float-speed="2">🏢</div>
+                        <div class="floating-icon icon-2" data-float-speed="3">🔗</div>
+                        <div class="floating-icon icon-3" data-float-speed="2.5">⚡</div>
+                        <div class="floating-icon icon-4" data-float-speed="1.8">📡</div>
                     </div>
                 </div>
             </div>
@@ -473,6 +534,11 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="js/script-enhanced.js"></script>
 </body>
 </html>

@@ -1,5 +1,146 @@
 /* Global Group Oy - Professional Infrastructure Website Styles */
 
+/* ==========================================================================
+   ANIMATIONS & SMOOTH EFFECTS
+   ========================================================================== */
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6); }
+  100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+}
+
+/* Blink Animations */
+@keyframes blinkGreen {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+@keyframes blinkAmber {
+  0%, 70% { opacity: 1; }
+  71%, 100% { opacity: 0.4; }
+}
+
+/* Float Animations */
+@keyframes floatVertical {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatHorizontal {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(10px); }
+}
+
+/* Data Flow Animation */
+@keyframes dataFlow {
+  0% { 
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(450px);
+    opacity: 0;
+  }
+}
+
+/* Draw Animation for SVG paths */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Particles Animation */
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 1s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-stats {
+  opacity: 0;
+  animation: fadeUp 1s ease-out 1.2s forwards;
+}
+
+.blink-green {
+  animation: blinkGreen 2s infinite;
+}
+
+.blink-amber {
+  animation: blinkAmber 2s infinite;
+}
+
+.float-vertical {
+  animation: floatVertical 3s ease-in-out infinite;
+}
+
+.fiber-cable {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: draw 2s ease-out forwards;
+}
+
+/* Animation Delays */
+[data-delay="200"] { animation-delay: 200ms; }
+[data-delay="400"] { animation-delay: 400ms; }
+[data-delay="600"] { animation-delay: 600ms; }
+[data-delay="800"] { animation-delay: 800ms; }
+[data-delay="1000"] { animation-delay: 1000ms; }
+[data-delay="1200"] { animation-delay: 1200ms; }
+
 /* CSS Custom Properties */
 :root {
     /* Colors - Premium Nordic Palette */
@@ -1196,5 +1337,274 @@ h6 { font-size: var(--font-size-base); }
     .datacenter-feature:hover,
     .about-feature:hover {
         transform: translateY(-2px);
+    }
+}
+
+/* ==========================================================================
+   ENHANCED SMOOTH EFFECTS & PARTICLES
+   ========================================================================== */
+
+/* Particles Container */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* Datacenter Animation Styles */
+.datacenter-animation {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.datacenter-svg {
+    width: 400px;
+    height: 300px;
+    filter: drop-shadow(0 10px 30px rgba(37, 99, 235, 0.3));
+}
+
+.status-light {
+    transition: all 0.3s ease;
+}
+
+.data-dot {
+    transform-origin: center;
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+    animation: particleFloat 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+.icon-1 {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.icon-2 {
+    top: 60%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.icon-3 {
+    top: 80%;
+    left: 25%;
+    animation-delay: 3s;
+}
+
+.icon-4 {
+    top: 30%;
+    right: 15%;
+    animation-delay: 4.5s;
+}
+
+/* Enhanced Button Styles */
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+}
+
+/* Counter Animation */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+.metric-suffix {
+    font-weight: 700;
+}
+
+.typing-text {
+    font-family: 'Courier New', monospace;
+    border-right: 2px solid var(--primary);
+    padding-right: 4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { border-color: var(--primary); }
+    51%, 100% { border-color: transparent; }
+}
+
+/* Service Cards Enhanced Hover Effects */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(29, 78, 216, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+}
+
+.service-icon {
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Capability Strip Animation */
+.capability-item {
+    transition: all 0.3s ease;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-4);
+    margin: calc(-1 * var(--spacing-4));
+}
+
+.capability-item:hover {
+    transform: translateY(-4px);
+    background: rgba(37, 99, 235, 0.1);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.1);
+}
+
+/* Smooth Page Load Effect */
+body {
+    opacity: 0;
+    animation: pageLoad 0.8s ease-out forwards;
+}
+
+@keyframes pageLoad {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Enhanced Focus States */
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+    transition: outline-color 0.2s ease;
+}
+
+/* Loading Shimmer Effect */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced Responsive Behavior */
+@media (max-width: 768px) {
+    .floating-icon {
+        font-size: 1.5rem;
+    }
+    
+    .datacenter-svg {
+        width: 300px;
+        height: 225px;
+    }
+    
+    .particles-container {
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 640px) {
+    .floating-elements {
+        display: none; /* Hide on very small screens for better performance */
+    }
+    
+    .datacenter-animation {
+        padding: var(--spacing-4);
     }
 }
