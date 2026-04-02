@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="180" viewBox="0 0 280 180">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="280" height="180" fill="#f8fafc" />
+  
+  <!-- Logo Symbol - Professional Network Icon -->
+  <g transform="translate(20, 30)">
+    <!-- Main network grid -->
+    <rect x="0" y="0" width="60" height="60" fill="url(#logoGradient)" rx="12" />
+    <!-- Center dot -->
+    <circle cx="30" cy="30" r="6" fill="white" />
+    <!-- Connection lines -->
+    <line x1="15" y1="15" x2="45" y2="45" stroke="white" stroke-width="2" />
+    <line x1="45" y1="15" x2="15" y2="45" stroke="white" stroke-width="2" />
+    <!-- Corner dots -->
+    <circle cx="15" cy="15" r="3" fill="white" />
+    <circle cx="45" cy="15" r="3" fill="white" />
+    <circle cx="15" cy="45" r="3" fill="white" />
+    <circle cx="45" cy="45" r="3" fill="white" />
+  </g>
+  
+  <!-- Company Name -->
+  <text x="100" y="50" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" fill="url(#textGradient)">Global Group</text>
+  <text x="100" y="80" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="500" fill="#64748b">Oy</text>
+  
+  <!-- Tagline -->
+  <text x="100" y="110" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="400" fill="#64748b">Datacenter • Fiber • Infrastructure</text>
+</svg>

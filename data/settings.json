@@ -1,35 +1,38 @@
 {
-  "cssVars": {
-    "--intro-blackout-ms": "1500ms",
-    "--intro-bg-fade-ms": "3100ms",
-    "--logo-reveal-ms": "3100ms",
-    "--logo-initial-opacity": "0.2",
-    "--logo-initial-blur": "80px",
-    "--logo-initial-brightness": "0.85",
-    "--logo-initial-scale": "2",
-    "--logo-move-duration-ms": "2050ms",
-    "--logo-move-delay-ms": "1500ms",
-    "--logo-arc-x": "0.65",
-    "--logo-arc-dy": "60px",
-    "--grid-hue-duration-ms": "2500ms",
-    "--square-shake-duration-ms": "1500ms",
-    "--square-shake-amp": "14px",
-    "--square-scale-end": "1.25",
-    "--orb-float-duration-s": "8s",
-    "--grid-float-duration-s": "6s",
-    "--eyebrow-size": "1rem",
-    "--services-fade-delay-ms": "1000ms",
-    "--neon": "#00FFA6",
-    "--square-green-rgba": "0,255,150",
-    "--logo-ease": "cubic-bezier(.2,.8,.2,1)"
+  "site": {
+    "company_name": "Global Group Oy",
+    "domain": "www.globaltech.fi",
+    "description": "Luotettava datacenter- ja kuituverkkojen asiantuntija",
+    "contact_email": "info@globaltech.fi",
+    "contact_phone": "+358 40 123 4567",
+    "address": "Teollisuuskatu 1, 00100 Helsinki",
+    "business_id": "1234567-8"
   },
-  "behaviors": {
-    "reactHover": true,
-    "reactContact": true
+  "branding": {
+    "logoUrl": "assets/logo.png",
+    "faviconUrl": "assets/favicon.png",
+    "ogImageUrl": "assets/og-image.jpg"
   },
-  "preset": null,
+  "features": {
+    "contact_form": true,
+    "shortener": true,
+    "analytics": false
+  },
+  "content": {
+    "heroEyebrow": "Kriittinen infrastruktuuri",
+    "heroTitle": "Datacenter-ratkaisut ja kuituverkot – Luotettava toteutus alusta loppuun.",
+    "heroSubtitle": "Suunnittelusta asennukseen ja ylläpitoon. Tekninen osaaminen ja dokumentoitu laatu jokaisessa projektissa.",
+    "companyDescription": "Global Group Oy on Suomen johtava datacenter- ja kuituverkkoinfrastruktuurin asiantuntija."
+  },
+  "shortener": {
+    "enabled": true,
+    "maxLength": 4,
+    "enforceHttps": true,
+    "redirectStatus": 302,
+    "autoPurgeDays": 365
+  },
   "meta": {
-    "updated_at": "2024-01-01T00:00:00+00:00",
-    "updated_by": "Bootstrap"
+    "updated_at": "2026-04-02T00:00:00+00:00",
+    "updated_by": "Global Group Oy"
   }
 }

@@ -1,20 +1,9 @@
 <?php
-declare(strict_types=1);
+// Legacy admin interface redirect
+// All admin functionality has been moved to admin.php for Global Group Oy
 
-session_start();
-
-require_once __DIR__ . '/config.php';
-require_once __DIR__ . '/lib/shortener.php';
-require_once __DIR__ . '/lib/system.php';
-
-$config = require __DIR__ . '/config/admin.config.php';
-$defaults = require __DIR__ . '/config/settings-defaults.php';
-
-$sessionKey = $config['session_key'] ?? 'anomfin_admin_authenticated';
-$sessionUserKey = $config['session_user_key'] ?? 'anomfin_admin_name';
-$settingsFile = $config['settings_file'] ?? __DIR__ . '/data/settings.json';
-$passwordHash = $config['password_hash'] ?? '';
-$defaultAdminName = $config['default_admin_name'] ?? 'AnomFIN Admin';
+header('Location: admin.php' . ($_SERVER['QUERY_STRING'] ? '?' . $_SERVER['QUERY_STRING'] : ''));
+exit;
 
 if (!is_dir(dirname($settingsFile))) {
     mkdir(dirname($settingsFile), 0775, true);
@@ -169,7 +158,7 @@ function renderLoginPage(string $message = ''): string
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Kirjautuminen – AnomFIN | AnomTools</title>
+      <title>Kirjautuminen – Global Group Oy</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -190,7 +179,7 @@ function renderLoginPage(string $message = ''): string
     </head>
     <body>
       <div class="login">
-        <h1>AnomFIN <span>| AnomTools</span></h1>
+        <h1>Global Group <span>Oy</span></h1>
         <p>Syötä hallintapaneelin salasana jatkaaksesi. Vaihda oletussalasana tiedostosta <code>config/admin.config.php</code>.</p>
         <form method="post">
           <label for="password">Salasana</label>

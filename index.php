@@ -7,7 +7,7 @@ $config = require __DIR__ . '/config/admin.config.php';
 $defaults = require __DIR__ . '/config/settings-defaults.php';
 $settingsFile = $config['settings_file'] ?? __DIR__ . '/data/settings.json';
 
-$settings = anomfin_load_settings($settingsFile, $defaults);
+$settings = globalgroup_load_settings($settingsFile, $defaults);
 $shortener = $settings['shortener'] ?? [];
 $redirectStatus = (int) ($shortener['redirectStatus'] ?? 302);
 if (!in_array($redirectStatus, [301, 302, 307, 308], true)) {
@@ -19,7 +19,7 @@ if (isset($_GET['s'])) {
     $code = preg_replace('/[^a-z0-9]/', '', $code);
 
     if ($code !== '') {
-        $target = anomfin_resolve_short_link($code);
+        $target = globalgroup_resolve_short_link($code);
         if ($target !== null) {
             header('Cache-Control: no-cache, no-store, must-revalidate');
             header('Pragma: no-cache');
@@ -32,7 +32,7 @@ if (isset($_GET['s'])) {
 
     http_response_code(404);
     header('Content-Type: text/html; charset=utf-8');
-    echo '<!DOCTYPE html><html lang="fi"><head><meta charset="UTF-8"><title>Lyhytlinkkiä ei löytynyt</title><style>body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#05070d;color:#e6eef8;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;}main{background:#0f1626;border:1px solid #1a2739;border-radius:16px;padding:32px;max-width:460px;box-shadow:0 20px 60px rgba(0,0,0,0.45);}h1{font-size:1.6rem;margin-bottom:12px;color:#62a1ff;}p{margin:0 0 16px;color:#9fb3c8;}a{color:#62a1ff;text-decoration:none;font-weight:600;}</style></head><body><main><h1>Lyhytlinkkiä ei löytynyt</h1><p>Pyytämääsi lyhytlinkkiä ei ole olemassa tai se on vanhentunut.</p><p><a href="/">Palaa etusivulle</a> · <a href="mailto:info@anomfin.fi">Ota yhteyttä AnomFIN-tiimiin</a></p></main></body></html>';
+    echo '<!DOCTYPE html><html lang="fi"><head><meta charset="UTF-8"><title>Lyhytlinkkiä ei löytynyt</title><style>body{font-family:Inter,system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;}main{background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;padding:32px;max-width:460px;box-shadow:0 20px 60px rgba(0,0,0,0.1);}h1{font-size:1.6rem;margin-bottom:12px;color:#2563eb;}p{margin:0 0 16px;color:#64748b;}a{color:#2563eb;text-decoration:none;font-weight:600;}</style></head><body><main><h1>Lyhytlinkkiä ei löytynyt</h1><p>Pyytämääsi lyhytlinkkiä ei ole olemassa tai se on vanhentunut.</p><p><a href="/">Palaa etusivulle</a> · <a href="mailto:info@globaltech.fi">Ota yhteyttä Global Group Oy -tiimiin</a></p></main></body></html>';
     exit;
 }
 
@@ -47,7 +47,7 @@ if (!is_file($indexHtml)) {
 header('Content-Type: text/html; charset=utf-8');
 readfile($indexHtml);
 
-function anomfin_load_settings(string $file, array $defaults): array
+function globalgroup_load_settings(string $file, array $defaults): array
 {
     if (!is_file($file)) {
         return $defaults;
@@ -61,7 +61,7 @@ function anomfin_load_settings(string $file, array $defaults): array
     return array_replace_recursive($defaults, $data);
 }
 
-function anomfin_resolve_short_link(string $code): ?string
+function globalgroup_resolve_short_link(string $code): ?string
 {
     $pdo = anomfin_get_pdo();
     if ($pdo instanceof \PDO) {

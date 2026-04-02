@@ -7,8 +7,8 @@ require_once __DIR__ . '/../lib/system.php';
 require_once __DIR__ . '/../config.php';
 
 $config = require __DIR__ . '/../config/admin.config.php';
-$sessionKey = $config['session_key'] ?? 'anomfin_admin_authenticated';
-$sessionUserKey = $config['session_user_key'] ?? 'anomfin_admin_name';
+$sessionKey = $config['session_key'] ?? 'globalgroup_admin_authenticated';
+$sessionUserKey = $config['session_user_key'] ?? 'globalgroup_admin_name';
 $settingsFile = $config['settings_file'] ?? __DIR__ . '/../data/settings.json';
 $metricsFile = __DIR__ . '/../data/metrics.json';
 
@@ -132,7 +132,7 @@ $sanitized['preset'] = $preset ?: null;
 
 $sanitized['meta'] = [
     'updated_at' => gmdate('c'),
-    'updated_by' => $_SESSION[$sessionUserKey] ?? ($config['default_admin_name'] ?? 'AnomFIN Admin'),
+    'updated_by' => $_SESSION[$sessionUserKey] ?? ($config['default_admin_name'] ?? 'Global Group Oy'),   
 ];
 
 if (!anomfin_settings_save($settingsFile, $sanitized)) {
